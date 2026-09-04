@@ -9,6 +9,8 @@
 ## Execution and Validation
 1. **[2026-09-04] Keep the MVP dependency-free**
    Do instead: use browser-native HTML, CSS, JavaScript modules, localStorage, and Node's built-in test runner.
+2. **[2026-09-04] Keep production URLs synchronized**
+   Do instead: when the deployment origin changes, update canonicals, social metadata, sitemap.xml, robots.txt, and llms.txt together.
 
 ## Domain Behavior Guardrails
 1. **[2026-09-04] Age must not gate career choices**

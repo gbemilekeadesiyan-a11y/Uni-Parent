@@ -1,0 +1,10 @@
+[
+  {
+    "date": "2026-09-04",
+    "scope": "app",
+    "genre": "modern-minimal",
+    "theme": "Cobalt adapted to Uni Parent teal",
+    "macrostructures": ["Workbench", "Long Document"],
+    "source": "design.md"
+  }
+]

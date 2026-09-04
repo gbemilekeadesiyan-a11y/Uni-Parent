@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Profile Settings | Uni Parent</title>
+    <meta name="description" content="Set your major, career direction, focus period, sleep window, and leisure preference for a more useful daily plan." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://uni-parent.vercel.app/profile.html" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <meta property="og:title" content="Student Profile Settings | Uni Parent" />
+    <meta property="og:description" content="Shape your daily plan with editable study, career, and wellbeing preferences." />
+    <meta property="og:url" content="https://uni-parent.vercel.app/profile.html" />
+    <meta property="og:image" content="https://uni-parent.vercel.app/assets/uni-parent-social.jpg" />
+    <meta property="og:image:alt" content="Uni Parent logo beside the message: A realistic day, built around you." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Student Profile Settings | Uni Parent" />
+    <meta name="twitter:description" content="Shape your daily plan with editable study, career, and wellbeing preferences." />
+    <meta name="twitter:image" content="https://uni-parent.vercel.app/assets/uni-parent-social.jpg" />
+    <meta name="twitter:image:alt" content="Uni Parent logo beside the message: A realistic day, built around you." />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Today","item":"https://uni-parent.vercel.app/"},{"@type":"ListItem","position":2,"name":"Profile","item":"https://uni-parent.vercel.app/profile.html"}]}
+    </script>
+  </head>
+  <body data-page="profile">
+    <a class="skip-link" href="#main-content">Skip to profile</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Uni Parent home"><img src="/assets/brand-mark.png" width="44" height="44" alt="" /><span>Uni Parent</span></a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a href="/">Today</a><a href="/profile.html" aria-current="page">Profile</a><a href="/schedule.html">Schedule</a><a href="/sources.html">Sources</a>
+      </nav>
+    </header>
+    <main class="content-main" id="main-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Today</a><span aria-hidden="true">/</span><span aria-current="page">Profile</span></nav>
+      <header class="page-heading">
+        <p class="machine-label">Planning inputs</p>
+        <h1>Set the context for your plan.</h1>
+        <p>Your answers stay in this browser. Age adjusts editable wellbeing defaults only; it never limits career choices.</p>
+      </header>
+      <form class="form-surface" id="profile-form" novalidate>
+        <div class="form-section-heading"><h2>Student profile</h2><span>About two minutes</span></div>
+        <div class="form-grid">
+          <label class="field"><span>Age band</span><select id="age-band" name="ageBand" required aria-required="true"><option value="under18">Under 18</option><option value="18to24">18–24</option><option value="25plus">25+</option></select><small>Used only for adjustable wellbeing defaults.</small></label>
+          <label class="field"><span>Major area</span><select id="major-area" name="majorArea" required aria-required="true"><option value="quantitative">STEM and quantitative</option><option value="reading-writing">Humanities and social sciences</option><option value="business">Business and economics</option><option value="clinical">Health and clinical</option><option value="creative">Arts and creative practice</option><option value="general">Other or undecided</option></select><small>Changes study-task wording, not presumed ability.</small></label>
+          <label class="field"><span>Your major <em>optional</em></span><input id="major" name="major" type="text" maxlength="80" placeholder="Computer Science" /><small>Use the wording your program uses.</small></label>
+          <label class="field"><span>Career track</span><select id="career-track" name="careerTrack" required aria-required="true"><option value="software-engineering">Software Engineering</option><option value="data-ai">Data and AI</option><option value="business-product">Business and Product</option><option value="healthcare">Healthcare</option><option value="creative-media">Creative and Media</option><option value="undecided-other">Undecided or Other</option></select><small>All tracks remain available at every age.</small></label>
+          <label class="field"><span>Career goal <em>optional</em></span><input id="career-goal" name="careerGoal" type="text" maxlength="140" placeholder="Build useful education tools" /><small>A short direction is enough.</small></label>
+          <label class="field"><span>Best focus period</span><select id="focus-preference" name="focusPreference" required aria-required="true"><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option></select><small>Focused work is placed near this window.</small></label>
+          <label class="field"><span>Wake time</span><input id="wake-time" name="wakeTime" type="time" required aria-required="true" /><small>Overnight schedules are not supported yet.</small></label>
+          <label class="field"><span>Sleep time</span><input id="sleep-time" name="sleepTime" type="time" required aria-required="true" /><small>Must be later than wake time.</small></label>
+          <label class="field"><span>Daily leisure target</span><select id="leisure-target" name="leisureTarget" required aria-required="true"><option value="30">30 minutes</option><option value="60">1 hour</option><option value="90">1 hour 30 minutes</option><option value="120">2 hours</option></select><small>The plan leaves additional open time unassigned.</small></label>
+        </div>
+        <div class="form-errors" id="profile-errors" role="alert" hidden></div>
+        <div class="form-actions">
+          <button class="button secondary" id="load-sample" type="button">Load sample</button>
+          <button class="button quiet danger-text" id="start-blank" type="button">Start blank</button>
+          <button class="button primary" type="submit">Save and open schedule</button>
+        </div>
+      </form>
+    </main>
+    <footer class="site-footer"><span>Next: protect classes, work, and responsibilities.</span><span><a href="/schedule.html">Open schedule</a> · <a href="/sources.html">Method and sources</a></span></footer>
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>

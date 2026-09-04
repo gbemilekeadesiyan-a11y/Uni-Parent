@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weekly Class and Work Schedule | Uni Parent</title>
+    <meta name="description" content="Add repeating classes, work shifts, and responsibilities so Uni Parent can plan around fixed commitments without overlaps." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://uni-parent.vercel.app/schedule.html" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <meta property="og:title" content="Weekly Class and Work Schedule | Uni Parent" />
+    <meta property="og:description" content="Protect the commitments that cannot move, then build a realistic day around them." />
+    <meta property="og:url" content="https://uni-parent.vercel.app/schedule.html" />
+    <meta property="og:image" content="https://uni-parent.vercel.app/assets/uni-parent-social.jpg" />
+    <meta property="og:image:alt" content="Uni Parent logo beside the message: A realistic day, built around you." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Weekly Class and Work Schedule | Uni Parent" />
+    <meta name="twitter:description" content="Protect the commitments that cannot move, then build a realistic day around them." />
+    <meta name="twitter:image" content="https://uni-parent.vercel.app/assets/uni-parent-social.jpg" />
+    <meta name="twitter:image:alt" content="Uni Parent logo beside the message: A realistic day, built around you." />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Today","item":"https://uni-parent.vercel.app/"},{"@type":"ListItem","position":2,"name":"Schedule","item":"https://uni-parent.vercel.app/schedule.html"}]}
+    </script>
+  </head>
+  <body data-page="schedule">
+    <a class="skip-link" href="#main-content">Skip to schedule</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Uni Parent home"><img src="/assets/brand-mark.png" width="44" height="44" alt="" /><span>Uni Parent</span></a>
+      <nav class="primary-nav" aria-label="Primary navigation"><a href="/">Today</a><a href="/profile.html">Profile</a><a href="/schedule.html" aria-current="page">Schedule</a><a href="/sources.html">Sources</a></nav>
+    </header>
+    <main class="content-main" id="main-content">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Today</a><span aria-hidden="true">/</span><span aria-current="page">Schedule</span></nav>
+      <header class="page-heading"><p class="machine-label">Weekly commitments</p><h1>Protect the hours that cannot move.</h1><p>Add recurring blocks once. The planner keeps them intact and reports conflicts instead of overbooking you.</p></header>
+      <div class="schedule-layout">
+        <form class="form-surface compact-form" id="commitment-form" novalidate>
+          <div class="form-section-heading"><h2>New commitment</h2><span>Repeats weekly</span></div>
+          <div class="form-grid single-column">
+            <label class="field"><span>Day</span><select id="commitment-weekday" name="weekday" required aria-required="true"><option value="1">Monday</option><option value="2">Tuesday</option><option value="3">Wednesday</option><option value="4">Thursday</option><option value="5">Friday</option><option value="6">Saturday</option><option value="0">Sunday</option></select><small>Choose the day this block repeats.</small></label>
+            <label class="field"><span>Title</span><input id="commitment-title" name="title" type="text" maxlength="80" placeholder="Economics lecture" required aria-required="true" /><small>Name the class, shift, or responsibility.</small></label>
+            <label class="field"><span>Type</span><select id="commitment-type" name="type" required aria-required="true"><option value="class">Class</option><option value="work">Work</option><option value="responsibility">Responsibility</option></select><small>This controls the calendar label only.</small></label>
+            <div class="time-pair"><label class="field"><span>Starts</span><input id="commitment-start" name="start" type="time" required aria-required="true" /></label><label class="field"><span>Ends</span><input id="commitment-end" name="end" type="time" required aria-required="true" /></label></div>
+          </div>
+          <div class="form-errors" id="commitment-errors" role="alert" hidden></div>
+          <button class="button primary full-width" type="submit">Add commitment</button>
+        </form>
+        <section class="schedule-surface" aria-labelledby="schedule-list-heading">
+          <div class="schedule-toolbar"><div><p class="machine-label">Selected weekday</p><h2 id="schedule-list-heading">Your schedule</h2></div><p id="schedule-summary"></p></div>
+          <div class="weekday-filter" id="weekday-filter" aria-label="Filter commitments by day"></div>
+          <div class="commitment-list" id="commitment-list"></div>
+          <div class="schedule-actions"><a class="button primary" href="/">Build today’s plan</a></div>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer"><span>Overlaps are rejected before they reach the planner.</span><span><a href="/profile.html">Edit profile</a> · <a href="/sources.html">Method and sources</a></span></footer>
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+# Uni Parent
+
+> Uni Parent is a deterministic, browser-only daily planning tool for university students.
+
+## Primary pages
+
+- [Daily planner](https://uni-parent.vercel.app/): Generate a balanced agenda around fixed commitments.
+- [Profile](https://uni-parent.vercel.app/profile.html): Configure major, career direction, focus time, and editable wellbeing defaults.
+- [Schedule](https://uni-parent.vercel.app/schedule.html): Add repeating class, work, and responsibility blocks.
+- [Method and sources](https://uni-parent.vercel.app/sources.html): Read the planner logic, boundaries, privacy model, and limitations.
+
+## Important facts
+
+- The planner is deterministic and does not call an AI service.
+- Student data remains in the current browser's localStorage.
+- Age never removes career choices or predicts ability.
+- Recommendations are planning suggestions, not medical, academic, or professional guarantees.
+
+## Source code
+
+- https://github.com/gbemilekeadesiyan-a11y/Uni-Parent

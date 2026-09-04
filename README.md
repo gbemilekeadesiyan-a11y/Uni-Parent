@@ -20,7 +20,15 @@ npm start
 
 Then open [http://localhost:4173](http://localhost:4173). Press `Ctrl+C` in the terminal to stop the server.
 
-The first visit loads a sample Computer Science student so the Today screen is immediately usable. Use **Profile** to change the student's context and **Schedule** to add repeating class, work, or responsibility blocks.
+The first visit loads a sample Computer Science student so the Today page is immediately usable. Use **Profile** to change the student's context and **Schedule** to add repeating class, work, or responsibility blocks.
+
+Routes:
+
+- `/` — calendar-style daily plan.
+- `/profile.html` — student context and planning preferences.
+- `/schedule.html` — repeating fixed commitments.
+- `/sources.html` — planning method, privacy boundaries, and limitations.
+- `/404.html` — custom not-found page.
 
 ## Verify the planner
 
@@ -38,14 +46,15 @@ Manual acceptance check:
 2. Open **Schedule**, select Friday, and try to add a block from 10:30 AM to 11:45 AM. Confirm the overlap is rejected.
 3. Add a valid block, rebuild the day, and confirm that fixed commitments remain unchanged.
 4. Mark a timeline item complete and refresh the browser. Confirm the completion remains saved.
-5. Resize the browser to a phone-sized width and confirm the header, forms, summary cards, and timeline remain readable without horizontal scrolling.
+5. Check 320, 375, 414, and 768 CSS-pixel widths and confirm every page has no horizontal scrolling.
 
 ## How the system works
 
-The application has four small layers:
+The application has five small layers:
 
-- `index.html` and `styles.css` provide the three-view responsive interface: Profile, Schedule, and Today.
-- `src/app.js` manages form interactions, rendering, navigation, completion tracking, and regeneration.
+- `index.html`, `profile.html`, `schedule.html`, and `sources.html` provide crawlable pages with unique metadata and one `h1` each.
+- `styles.css` implements the shared design system and calendar-first responsive interface.
+- `src/app.js` is a small page loader; `src/pages/` contains only the JavaScript needed by the current page.
 - `src/planner.js` is a pure scheduling engine. It validates inputs, subtracts fixed commitments from the waking day, places candidate activities, and turns the remaining gaps into breaks or free time.
 - `src/catalog.js` contains career tracks, rotating career actions, major-aware study prompts, and adjustable wellbeing defaults. `src/storage.js` stores the profile, commitments, plans, and completion state in browser `localStorage`.
 
@@ -73,6 +82,14 @@ The recommendations are planning suggestions, not medical, academic, or professi
 - The career catalog is intentionally small and rule-based.
 
 The reserved `enhancePlanExplanation(plan, profile)` adapter allows a future AI service to improve explanations without replacing the deterministic schedule. Other natural extensions include calendar import, weekly planning, adaptive feedback, cloud synchronization, and a larger reviewed career catalog.
+
+## Search and sharing
+
+The repository includes `sitemap.xml`, `robots.txt`, the standard `llms.txt`, a custom 404 page, JSON-LD, canonical links, favicon variants, and a 1200×630 social share image. The canonical origin is currently set to `https://uni-parent.vercel.app`; update that origin in the HTML pages, `sitemap.xml`, `robots.txt`, and `llms.txt` if the production domain differs.
+
+`LocalBusiness` data intentionally contains no invented address, phone number, or opening hours. Add those fields only when verified business details exist.
+
+No production source maps are generated or referenced. The browser loads the small `src/app.js` dispatcher and then only the page-specific module it needs.
 
 ## Collaborating
 

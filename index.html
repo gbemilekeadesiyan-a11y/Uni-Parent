@@ -3,293 +3,130 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Uni Parent turns a university student's goals and commitments into a balanced daily plan."
-    />
-    <title>Uni Parent · A balanced day, built around you</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Daily Student Planner | Uni Parent</title>
+    <meta name="description" content="Build a realistic daily plan around university classes, career goals, wellbeing, and genuinely free time." />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://uni-parent.vercel.app/" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Uni Parent" />
+    <meta property="og:title" content="Daily Student Planner | Uni Parent" />
+    <meta property="og:description" content="A balanced daily plan that protects classes, career progress, wellbeing, and free time." />
+    <meta property="og:url" content="https://uni-parent.vercel.app/" />
+    <meta property="og:image" content="https://uni-parent.vercel.app/assets/uni-parent-social.jpg" />
+    <meta property="og:image:alt" content="Uni Parent logo beside the message: A realistic day, built around you." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Daily Student Planner | Uni Parent" />
+    <meta name="twitter:description" content="A balanced daily plan that protects classes, career progress, wellbeing, and free time." />
+    <meta name="twitter:image" content="https://uni-parent.vercel.app/assets/uni-parent-social.jpg" />
+    <meta name="twitter:image:alt" content="Uni Parent logo beside the message: A realistic day, built around you." />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://uni-parent.vercel.app/#website",
+            "url": "https://uni-parent.vercel.app/",
+            "name": "Uni Parent",
+            "description": "A browser-based daily planning tool for university students"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://uni-parent.vercel.app/#app",
+            "name": "Uni Parent",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Any modern web browser",
+            "url": "https://uni-parent.vercel.app/",
+            "isAccessibleForFree": true,
+            "description": "Creates deterministic daily agendas from a student profile and fixed weekly commitments."
+          },
+          {
+            "@type": "LocalBusiness",
+            "@id": "https://uni-parent.vercel.app/#organization",
+            "name": "Uni Parent",
+            "url": "https://uni-parent.vercel.app/",
+            "logo": "https://uni-parent.vercel.app/assets/brand-mark.png",
+            "image": "https://uni-parent.vercel.app/assets/uni-parent-social.jpg",
+            "description": "Student planning software available online.",
+            "priceRange": "Free"
+          }
+        ]
+      }
+    </script>
   </head>
-  <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
-
+  <body data-page="today">
+    <a class="skip-link" href="#main-content">Skip to planner</a>
     <header class="site-header">
-      <a class="brand" href="#" aria-label="Uni Parent home">
-        <span class="brand-mark" aria-hidden="true">UP</span>
-        <span>
-          <strong>Uni Parent</strong>
-          <small>Daily direction, human pace</small>
-        </span>
+      <a class="brand" href="/" aria-label="Uni Parent home">
+        <img src="/assets/brand-mark.png" width="44" height="44" alt="" />
+        <span>Uni Parent</span>
       </a>
-
-      <nav class="view-tabs" aria-label="Main views">
-        <button class="tab-button" type="button" data-view="profile" aria-selected="false">
-          <span>01</span> Profile
-        </button>
-        <button class="tab-button" type="button" data-view="schedule" aria-selected="false">
-          <span>02</span> Schedule
-        </button>
-        <button class="tab-button" type="button" data-view="today" aria-selected="true">
-          <span>03</span> Today
-        </button>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a href="/" aria-current="page">Today</a>
+        <a href="/profile.html">Profile</a>
+        <a href="/schedule.html">Schedule</a>
+        <a href="/sources.html">Sources</a>
       </nav>
     </header>
 
-    <main id="main-content">
-      <section class="view-panel" id="profile-view" data-panel="profile" hidden>
-        <div class="page-intro split-intro">
-          <div>
-            <p class="eyebrow">Your starting point</p>
-            <h1>Give your day a little context.</h1>
-            <p class="lede">
-              Uni Parent uses your availability and goals to suggest a realistic day. Every default is visible,
-              adjustable, and stored only in this browser.
-            </p>
-          </div>
-          <div class="intro-note">
-            <span class="note-number">01</span>
-            <p>Your age band only changes wellbeing defaults. It never limits which careers you can explore.</p>
-          </div>
+    <main class="app-main" id="main-content">
+      <section class="planner-intro" aria-labelledby="page-title">
+        <div>
+          <p class="machine-label">Daily planner</p>
+          <h1 id="page-title">Plan today around what matters.</h1>
+          <p>Fixed commitments stay fixed. Focused work lands near your best energy. Everything else can breathe.</p>
         </div>
-
-        <form class="form-card" id="profile-form" novalidate>
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Student profile</p>
-              <h2>What are you building toward?</h2>
-            </div>
-            <p>About two minutes</p>
-          </div>
-
-          <div class="form-grid">
-            <label>
-              <span>Age band</span>
-              <select id="age-band" name="ageBand" required>
-                <option value="under18">Under 18</option>
-                <option value="18to24">18–24</option>
-                <option value="25plus">25+</option>
-              </select>
-              <small>Used only for editable wellbeing defaults.</small>
-            </label>
-
-            <label>
-              <span>Major area</span>
-              <select id="major-area" name="majorArea" required>
-                <option value="quantitative">STEM and quantitative</option>
-                <option value="reading-writing">Humanities and social sciences</option>
-                <option value="business">Business and economics</option>
-                <option value="clinical">Health and clinical</option>
-                <option value="creative">Arts and creative practice</option>
-                <option value="general">Other or undecided</option>
-              </select>
-            </label>
-
-            <label class="span-two">
-              <span>Your major <em>optional</em></span>
-              <input id="major" name="major" type="text" maxlength="80" placeholder="For example, Computer Science" />
-            </label>
-
-            <label>
-              <span>Career track</span>
-              <select id="career-track" name="careerTrack" required>
-                <option value="software-engineering">Software Engineering</option>
-                <option value="data-ai">Data and AI</option>
-                <option value="business-product">Business and Product</option>
-                <option value="healthcare">Healthcare</option>
-                <option value="creative-media">Creative and Media</option>
-                <option value="undecided-other">Undecided or Other</option>
-              </select>
-            </label>
-
-            <label>
-              <span>Best focus period</span>
-              <select id="focus-preference" name="focusPreference" required>
-                <option value="morning">Morning</option>
-                <option value="afternoon">Afternoon</option>
-                <option value="evening">Evening</option>
-              </select>
-            </label>
-
-            <label class="span-two">
-              <span>Career goal <em>optional</em></span>
-              <input
-                id="career-goal"
-                name="careerGoal"
-                type="text"
-                maxlength="140"
-                placeholder="For example, become a data analyst in education"
-              />
-            </label>
-
-            <label>
-              <span>Wake time</span>
-              <input id="wake-time" name="wakeTime" type="time" required />
-            </label>
-
-            <label>
-              <span>Sleep time</span>
-              <input id="sleep-time" name="sleepTime" type="time" required />
-            </label>
-
-            <label class="span-two">
-              <span>Daily leisure target</span>
-              <select id="leisure-target" name="leisureTarget" required>
-                <option value="30">30 minutes</option>
-                <option value="60">1 hour</option>
-                <option value="90">1 hour 30 minutes</option>
-                <option value="120">2 hours</option>
-              </select>
-              <small>The planner may raise this to the adjustable wellbeing default for your age band.</small>
-            </label>
-          </div>
-
-          <div class="form-errors" id="profile-errors" role="alert" hidden></div>
-
-          <div class="form-actions">
-            <button class="button secondary" id="load-sample" type="button">Load sample student</button>
-            <button class="button quiet danger-text" id="start-blank" type="button">Start blank</button>
-            <button class="button primary" type="submit">Save and continue <span aria-hidden="true">→</span></button>
-          </div>
-        </form>
+        <div class="date-controls">
+          <label for="plan-date">Plan date</label>
+          <input id="plan-date" type="date" />
+          <button class="button primary" id="generate-plan" type="button">Regenerate day</button>
+        </div>
       </section>
 
-      <section class="view-panel" id="schedule-view" data-panel="schedule" hidden>
-        <div class="page-intro split-intro">
-          <div>
-            <p class="eyebrow">Your fixed commitments</p>
-            <h1>Protect what cannot move.</h1>
-            <p class="lede">Add classes, work, and responsibilities. The planner fits everything else around them.</p>
-          </div>
-          <div class="intro-note">
-            <span class="note-number">02</span>
-            <p>Overlaps are stopped here, before they can become an impossible daily plan.</p>
-          </div>
-        </div>
-
-        <div class="schedule-layout">
-          <form class="form-card compact-card" id="commitment-form" novalidate>
-            <div class="section-heading">
-              <div>
-                <p class="eyebrow">Add a block</p>
-                <h2>New commitment</h2>
-              </div>
-            </div>
-
-            <div class="form-grid single-column">
-              <label>
-                <span>Day</span>
-                <select id="commitment-weekday" required>
-                  <option value="1">Monday</option>
-                  <option value="2">Tuesday</option>
-                  <option value="3">Wednesday</option>
-                  <option value="4">Thursday</option>
-                  <option value="5">Friday</option>
-                  <option value="6">Saturday</option>
-                  <option value="0">Sunday</option>
-                </select>
-              </label>
-
-              <label>
-                <span>Title</span>
-                <input id="commitment-title" type="text" maxlength="80" placeholder="For example, Economics lecture" required />
-              </label>
-
-              <label>
-                <span>Type</span>
-                <select id="commitment-type" required>
-                  <option value="class">Class</option>
-                  <option value="work">Work</option>
-                  <option value="responsibility">Responsibility</option>
-                </select>
-              </label>
-
-              <div class="time-pair">
-                <label>
-                  <span>Starts</span>
-                  <input id="commitment-start" type="time" required />
-                </label>
-                <label>
-                  <span>Ends</span>
-                  <input id="commitment-end" type="time" required />
-                </label>
-              </div>
-            </div>
-
-            <div class="form-errors" id="commitment-errors" role="alert" hidden></div>
-            <button class="button primary full-width" type="submit">Add commitment</button>
-          </form>
-
-          <section class="form-card schedule-list-card" aria-labelledby="schedule-list-heading">
-            <div class="section-heading schedule-heading">
-              <div>
-                <p class="eyebrow">Weekly rhythm</p>
-                <h2 id="schedule-list-heading">Your schedule</h2>
-              </div>
-              <p id="schedule-summary"></p>
-            </div>
-
-            <div class="weekday-filter" id="weekday-filter" aria-label="Filter commitments by day"></div>
-            <div class="commitment-list" id="commitment-list"></div>
-
-            <div class="form-actions right-aligned">
-              <button class="button primary" id="schedule-continue" type="button">Build today’s plan <span aria-hidden="true">→</span></button>
-            </div>
+      <div class="calendar-workbench">
+        <aside class="planner-sidebar" aria-label="Day summary">
+          <section class="date-card" aria-labelledby="date-card-heading">
+            <p class="machine-label">Selected day</p>
+            <h2 id="date-card-heading"><span id="date-card-weekday">Today</span><strong id="date-card-number">—</strong></h2>
           </section>
-        </div>
-      </section>
-
-      <section class="view-panel" id="today-view" data-panel="today">
-        <div class="today-hero">
-          <div class="hero-copy">
-            <p class="eyebrow">A clear day, not a crowded one</p>
-            <h1>Make progress.<br /><span>Keep the rest of your life.</span></h1>
-            <p>
-              Your classes stay fixed. Study and career steps land near your best focus time. Open space stays open.
-            </p>
-
-            <div class="hero-controls">
-              <label>
-                <span>Plan date</span>
-                <input id="plan-date" type="date" />
-              </label>
-              <button class="button light" id="generate-plan" type="button">Regenerate day</button>
-            </div>
-          </div>
-
-          <aside class="career-card" id="career-card" aria-labelledby="career-card-title">
-            <span class="mini-label">Today’s career move</span>
-            <div class="career-icon" aria-hidden="true">↗</div>
+          <section class="career-card" id="career-card" aria-labelledby="career-card-title">
+            <p class="machine-label">Career move</p>
             <h2 id="career-card-title">One concrete step</h2>
             <p id="career-card-reason">A focused action tied to the direction you chose.</p>
-            <span class="career-duration">45 focused minutes</span>
-          </aside>
-        </div>
+          </section>
+          <section aria-labelledby="balance-heading">
+            <h2 class="sidebar-heading" id="balance-heading">Balance</h2>
+            <div class="balance-grid" id="balance-grid"></div>
+          </section>
+          <p class="sidebar-link"><a href="/profile.html">Adjust planning preferences</a></p>
+        </aside>
 
-        <section class="plan-shell" aria-labelledby="plan-heading">
-          <div class="plan-topline">
+        <section class="calendar-panel" aria-labelledby="plan-heading">
+          <div class="calendar-toolbar">
             <div>
-              <p class="eyebrow" id="plan-kicker">Your day</p>
+              <p class="machine-label" id="plan-kicker">Your day</p>
               <h2 id="plan-heading">Today’s plan</h2>
             </div>
             <div class="progress-copy" id="progress-copy">0 of 0 priorities complete</div>
           </div>
-
-          <div class="balance-grid" id="balance-grid"></div>
           <div class="plan-notices" id="plan-notices" aria-live="polite"></div>
-          <div class="timeline" id="timeline"></div>
+          <div class="timeline" id="timeline" aria-label="Daily calendar"></div>
           <div class="empty-plan" id="empty-plan" hidden>
-            <p>We could not build this day yet.</p>
-            <button class="button secondary" type="button" data-view-link="profile">Review your profile</button>
+            <p>The planner needs a little more context.</p>
+            <a class="button secondary" href="/profile.html">Review profile</a>
           </div>
         </section>
-
-        <p class="disclaimer">
-          Uni Parent offers planning suggestions, not medical, academic, or professional guarantees. Adjust the plan to fit your needs.
-        </p>
-      </section>
+      </div>
     </main>
 
+    <footer class="site-footer">
+      <span>Uni Parent keeps planning data in this browser.</span>
+      <span><a href="/sources.html">Method and sources</a> · <a href="/profile.html">Edit profile</a></span>
+    </footer>
     <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
-    <script type="module" src="src/app.js"></script>
+    <script type="module" src="/src/app.js"></script>
   </body>
 </html>

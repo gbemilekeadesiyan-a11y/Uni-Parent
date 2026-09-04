@@ -1,0 +1,9 @@
+{
+  "scannedAt": "2026-09-04",
+  "framework": "vanilla-html",
+  "fontStack": "system-ui",
+  "palette": "existing deep-teal brand, rebuilt as semantic tokens",
+  "motion": "motion-cut",
+  "spacing": "named four-point scale",
+  "preserve": ["planner behavior", "localStorage state", "career catalog", "deep-teal brand mark"]
+}
